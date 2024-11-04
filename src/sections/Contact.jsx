@@ -14,7 +14,7 @@ export const Contact = () => {
   });
 
   const [errors, setErrors] = useState({});
-  const [state, handleSubmit] = useForm("yourFormspreeID"); // replace 'yourFormspreeID' with your actual Formspree ID
+  const [state, handleSubmit] = useForm("myFormspreeID");
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -1,22 +1,25 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import digital_transformation from "../assets/images/digital_transformation.jpg";
+import IT_consulting2 from "../assets/images/IT_consulting2.jpg";
+import managed_operation from "../assets/images/managed_operation.jpg";
 const Services = () => {
   const services = [
     {
       title: "Digital Transformation",
       description: "Modernize your business with cutting-edge digital solutions",
-      image: "/api/placeholder/400/300",
+      image: digital_transformation,
       categories: [
         "Cloud Migration",
         "Process Automation",
         "Data Analytics",
-        "AI Implementation"
+        "AI Implementation" // kokookoko
       ]
     },
     {
       title: "IT Consulting",
       description: "Strategic technology consulting for business growth",
-      image: "/api/placeholder/400/300",
+      image: IT_consulting2,
       categories: [
         "Technology Strategy",
         "Digital Roadmap",
@@ -27,7 +30,7 @@ const Services = () => {
     {
       title: "Managed Services",
       description: "End-to-end IT management and support",
-      image: "/api/placeholder/400/300",
+      image: managed_operation,
       categories: [
         "Infrastructure Management",
         "Security Operations",

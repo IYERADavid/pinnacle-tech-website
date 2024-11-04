@@ -4,6 +4,9 @@ import React from "react";
 import 'aos/dist/aos.css';
 import Aos from 'aos';
 import { useEffect, useState } from "react";
+import business_exploration from "../assets/images/business_exploration.png"
+import ai_powered from "../assets/images/ai_powered.jpg"
+import cloud_service from "../assets/images/cloud_service.jpg"
 
 
 
@@ -18,21 +21,21 @@ const Hero = () => {
       subtitle: "Digital solutions that drive innovation and growth",
       description: "Partner with Pinnacle Tech to accelerate your digital transformation journey and stay ahead in the evolving technology landscape.",
       ctaText: "Explore Our Solutions",
-      bgImage: "/api/placeholder/1920/1080",
+      bgImage: business_exploration,
     },
     {
       title: "AI-Powered Enterprise Solutions",
       subtitle: "Intelligent automation for the modern business",
       description: "Leverage cutting-edge AI and ML technologies to optimize operations and enhance decision-making capabilities.",
       ctaText: "Discover AI Solutions",
-      bgImage: "/api/placeholder/1920/1080",
+      bgImage: ai_powered,
     },
     {
       title: "Secure & Scalable Cloud Services",
       subtitle: "Cloud transformation that drives business value",
       description: "Build, migrate, and manage your cloud infrastructure with our comprehensive cloud services and solutions.",
       ctaText: "Learn About Cloud",
-      bgImage: "/api/placeholder/1920/1080",
+      bgImage: cloud_service,
     }
   ];
 

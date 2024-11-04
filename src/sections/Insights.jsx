@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-
+import cyber_security from "../assets/images/cyber_security.jpg";
 
 const Insights = () => {
   const insights = [
@@ -8,7 +8,7 @@ const Insights = () => {
       category: "Report",
       title: "The Future of Digital Transformation",
       date: "October 25, 2024",
-      image: "/api/placeholder/400/300"
+      image: cyber_security, 
     },
     {
       category: "Case Study",

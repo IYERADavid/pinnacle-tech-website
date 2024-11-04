@@ -3,8 +3,10 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/assets/images/**/*.{png,jpg,svg}",
   ],
   theme: {
+    darkMode: "class",
     extend: {},
   },
   plugins: [],
