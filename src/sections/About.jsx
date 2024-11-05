@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React from "react"; //
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ArrowRight, CheckCircle, Users, Globe, Lightbulb } from 'lucide-react';
+import { useInView } from "react-intersection-observer";
 import PropTypes from 'prop-types';
+import CountUp from 'react-countup';
+
 const Card = ({ children, className }) => {
+
   return (
     <div className={`bg-white rounded shadow-md p-6 ${className}`}>
       {children}
@@ -28,11 +31,14 @@ CardContent.propTypes = {
   children: PropTypes.node.isRequired,
 };
 const AboutSection = () => {
+  const [ref, inView] = useInView({
+    
+  })
   const stats = [
-    { title: "Years of Excellence", value: "20+" },
-    { title: "Global Clients", value: "1000+" },
-    { title: "Team Members", value: "50+" },
-    { title: "Countries", value: "50+" }
+    { title: "Years of Excellence", value: "20" },
+    { title: "Global Clients", value: "1000" },
+    { title: "Team Members", value: "50" },
+    { title: "Countries", value: "50" }
   ];
 
   const services = [
@@ -59,11 +65,15 @@ const AboutSection = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+
+        <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
           {stats.map((stat, index) => (
             <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
               <CardContent className="p-0">
-                <h3 className="text-3xl font-bold text-purple-700">{stat.value}</h3>
+                <h3 className="text-3xl font-bold text-purple-700">
+                  {inView ? <CountUp end={stat.value} duration={2} /> : 0}
+                  {stat.value >= 50 && "+"}
+                </h3>
                 <p className="text-gray-600 mt-2">{stat.title}</p>
               </CardContent>
             </Card>

@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "@formspree/react";
 
 export const Contact = () => {
@@ -14,7 +13,7 @@ export const Contact = () => {
   });
 
   const [errors, setErrors] = useState({});
-  const [state, handleSubmit] = useForm("myFormspreeID");
+  const [state, handleSubmit] = useForm("xdkoekad");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -63,6 +62,7 @@ export const Contact = () => {
               value={formData.firstName}
               onChange={handleChange}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-purple-700"
+              required
             />
             {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>}
           </div>
@@ -74,6 +74,7 @@ export const Contact = () => {
               value={formData.lastName}
               onChange={handleChange}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-purple-700"
+              required
             />
             {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
           </div>
@@ -86,6 +87,7 @@ export const Contact = () => {
             value={formData.workEmail}
             onChange={handleChange}
             className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-purple-700"
+            required
           />
           {errors.workEmail && <p className="text-red-500 text-sm mt-1">{errors.workEmail}</p>}
         </div>
@@ -98,6 +100,7 @@ export const Contact = () => {
               value={formData.jobTitle}
               onChange={handleChange}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-purple-700"
+              required
             />
             {errors.jobTitle && <p className="text-red-500 text-sm mt-1">{errors.jobTitle}</p>}
           </div>
@@ -109,6 +112,7 @@ export const Contact = () => {
               value={formData.company}
               onChange={handleChange}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-purple-700"
+              required
             />
             {errors.company && <p className="text-red-500 text-sm mt-1">{errors.company}</p>}
           </div>
@@ -121,6 +125,7 @@ export const Contact = () => {
             onChange={handleChange}
             className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-purple-700"
             rows="5"
+            required
           />
           {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
         </div>
