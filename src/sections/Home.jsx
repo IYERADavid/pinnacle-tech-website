@@ -210,13 +210,6 @@ const Home = () => {
 
       {/* Main Content Area */}
   
-
-
-
-
-     
-    
-
       
         <div className="relative h-screen bg-gray-900 overflow-hidden">
           {/* Background Slides */}
