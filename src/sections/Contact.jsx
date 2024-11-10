@@ -50,7 +50,7 @@ export const Contact = () => {
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-8 bg-gray-50 shadow-lg rounded-lg">
+    <div className="max-w-3xl mx-auto p-8">
       <h2 className="text-3xl font-semibold text-black-900 mb-6 text-center">How can we help you?</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">

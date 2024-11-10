@@ -5,10 +5,10 @@ import { Sun, Moon, Monitor, Globe } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { ThemeProvider } from 'next-themes';
 import { ArrowRightIcon } from '@heroicons/react/solid';
-import business_exploration from "../assets/images/business_exploration.png"
 import ai_powered from "../assets/images/ai_powered.jpg"
-import cloud_service from "../assets/images/cloud_service.jpg"
 import 'aos/dist/aos.css';
+import virtual_reality from "../assets/images/virtual_reality.jpg"
+import block_chain from "../assets/images/block_chain.jpg"
 
 
 const slides = [
@@ -17,21 +17,21 @@ const slides = [
     subtitle: "Digital solutions that drive innovation and growth",
     description: "Partner with Pinnacle Tech to accelerate your digital transformation journey and stay ahead in the evolving technology landscape.",
     ctaText: "Explore Our Solutions",
-    bgImage: business_exploration,
+    bgImage: block_chain,
   },
   {
     title: "AI-Powered Enterprise Solutions",
     subtitle: "Intelligent automation for the modern business",
     description: "Leverage cutting-edge AI and ML technologies to optimize operations and enhance decision-making capabilities.",
     ctaText: "Discover AI Solutions",
-    bgImage: ai_powered,
+    bgImage: virtual_reality,
   },
   {
     title: "Secure & Scalable Cloud Services",
     subtitle: "Cloud transformation that drives business value",
     description: "Build, migrate, and manage your cloud infrastructure with our comprehensive cloud services and solutions.",
     ctaText: "Learn About Cloud",
-    bgImage: cloud_service,
+    bgImage: ai_powered,
   }
 ];
 
@@ -41,7 +41,16 @@ const Home = () => {
 
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState('dark');
+  const { theme, setTheme } = useTheme();
+
+
+  const handleScroll = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+  } else {
+    setTheme('light');
+  }
+  };
 
   const handleThemeChange = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
@@ -131,7 +140,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-white transition-colors duration-300">
-      <nav className={` ${ theme == 'dark' ? 'bg-black' : theme == 'system' ? 'bg-gray-800' : 'bg-white' } border-b border-gray-200 dark:border-gray-700 fixed top-0 w-full z-50 shadow-sm transition-transform duration-300 ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
+      <nav className={`bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 fixed top-0 w-full z-50 shadow-sm transition-transform duration-300 ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between h-16">
             {/* Logo */}
@@ -151,15 +160,15 @@ const Home = () => {
                   className="relative"
                 >
                   <button 
-                    className={`h-16 px-4 ${ theme == 'dark' || theme == 'system' ? 'text-white hover:text-purple-400' : 'text-black hover:text-purple-800' } relative
-                      ${hoveredCategory === category ? 'text-white border-b-2 border-purple-800 dark:border-purple-400' : ''}`}
+                    className={`h-16 px-4 text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 relative
+                      ${hoveredCategory === category ? 'text-purple-800 dark:text-purple-400 border-b-2 border-purple-800 dark:border-purple-400' : ''}`}
                   >
                     {category}
                   </button>
                   
                   {hoveredCategory === category && (
                     <div 
-                      className={`absolute left-0 w-screen ${ theme == 'dark' ? 'bg-black' : theme == 'system' ? 'bg-gray-800' : 'bg-white' } border-b shadow-lg animate-fadeIn`}
+                      className="absolute left-0 w-screen bg-white dark:bg-gray-800 border-b shadow-lg animate-fadeIn"
                       style={{ width: '100vw', left: '50%', transform: 'translateX(-50%)' }}
                       onMouseEnter={() => setHoveredCategory(category)}
                       onMouseLeave={() => setHoveredCategory(null)}
@@ -171,7 +180,7 @@ const Home = () => {
                             <ul className="space-y-2">
                               {section.items.map((item, itemIdx) => (
                                 <li key={itemIdx}>
-                                  <a href="#" className={` ${ theme == 'dark' || theme == 'system' ? 'text-white hover:text-purple-400' : 'text-black hover:text-purple-800' } block py-1 transition-colors duration-150`}>
+                                  <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 block py-1 transition-colors duration-150">
                                     {item}
                                   </a>
                                 </li>
@@ -185,7 +194,7 @@ const Home = () => {
                 </div>
               ))}
 
-              <a href="#" className={`h-16 px-4 flex items-center ${ theme == 'dark' || theme == 'system' ? 'text-white hover:text-purple-400' : 'text-black hover:text-purple-800' } transition-colors duration-150`}>
+              <a href="#" className="h-16 px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 transition-colors duration-150">
                 About Us
               </a>
             </div>
@@ -193,7 +202,7 @@ const Home = () => {
             {/* Theme Switcher and Language */}
             <div className="flex items-center gap-4">
               <ThemeSwitch />
-              <button className={` p-2 rounded-full ${ theme == 'dark' ? 'hover:bg-gray-800' : 'hover:bg-black' } transition-colors duration-150`}>
+              <button className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150">
                 <Globe className="w-6 h-6 text-gray-600 dark:text-gray-400" />
               </button>
             </div>
@@ -235,7 +244,8 @@ const Home = () => {
             </div>
           ))}
 
-          {/* Content */}
+          {/* Main Content */}
+
           <div className="relative z-20 h-full">
             <div className="max-w-7xl mx-auto px-4 h-full flex items-center">
               <div className="max-w-3xl">
@@ -269,6 +279,8 @@ const Home = () => {
           </div>
 
           {/* Slide Navigation */}
+
+
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
             <div className="flex space-x-3">
               {slides.map((_, index) => (
@@ -285,8 +297,9 @@ const Home = () => {
               ))}
             </div>
           </div>
-
           {/* Scroll Indicator */}
+
+          
           <div className="absolute bottom-8 right-8 z-30">
             <div className="animate-bounce">
               <svg

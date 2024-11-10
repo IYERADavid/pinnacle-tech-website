@@ -3,9 +3,9 @@ import Header from "./sections/Header";
 import Hero from "./sections/Hero";
 import Services from "./sections/Services";
 import Industries from "./sections/Industries";
-import Insights from "./sections/Insights";
+import Innovation from "./sections/Innovation";
 import About from "./sections/About";
-import Careers from "./sections/Careers";
+import Main from "./sections/Main";
 import { Contact } from "./sections/Contact";
 import Footer from "./sections/Footer";
 
@@ -18,9 +18,9 @@ function App() {
     <Hero />
     <Services />
     <Industries />
-    <Insights />
+    <Innovation />
     <About />
-    <Careers />
+    <Main />
     <Contact />
     <Footer />
         

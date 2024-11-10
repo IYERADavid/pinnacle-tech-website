@@ -41,21 +41,12 @@ const AboutSection = () => {
     { title: "Countries", value: "50" }
   ];
 
-  const services = [
-    "Digital Transformation",
-    "Cloud Solutions",
-    "AI & Machine Learning",
-    "Cybersecurity",
-    "IT Consulting",
-    "Software Development"
-  ];
-
   return (
     <div className="bg-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Mission Statement */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-purple-700 mb-6">
+          <h1 className="text-4xl font-bold text-black mb-6">
             Transforming Businesses Through Technology
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -106,18 +97,7 @@ const AboutSection = () => {
         </div>
 
         {/* Services List */}
-        <div className="bg-gray-50 rounded-lg p-8">
-          <h2 className="text-2xl font-bold text-purple-700 mb-6">Our Services</h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            {services.map((service, index) => (
-              <div key={index} className="flex items-center space-x-3">
-                <CheckCircle className="w-5 h-5 text-purple-700" />
-                <span className="text-gray-700">{service}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
+      
         {/* CTA Section */}
         <div className="text-center mt-16">
           <h2 className="text-2xl font-bold text-purple-700 mb-4">

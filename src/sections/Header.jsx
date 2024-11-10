@@ -10,7 +10,7 @@ const Header = () => {
           <a href="#" className="hover:text-purple-400">News & Media</a>
         </div>
         <div className="flex space-x-4 text-sm">
-          <a href="#" className="hover:text-purple-400">Global</a>
+          <a href="#" className="hover:text-purple-400">Global</a> 
           <button className="hover:text-purple-400">Search</button>
         </div>
       </div>
