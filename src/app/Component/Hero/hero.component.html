@@ -1,0 +1,57 @@
+<!-- header.component.html -->
+<header [ngClass]="{'scrolled': isScrolled, 'menu-open': isMenuOpen}">
+  <div class="header-container">
+    <!-- Logo -->
+    <a routerLink="/" class="logo">
+      <div class="logo-text">Pinnacle<span>Tech</span></div>
+    </a>
+
+    <!-- Navigation -->
+    <nav [ngClass]="{'active': isMenuOpen}">
+      <ul class="nav-list">
+        <li *ngFor="let item of menuItems" class="nav-item" 
+            [ngClass]="{'has-dropdown': item.dropdown}">
+          
+          <a *ngIf="item.link" [routerLink]="item.link" 
+             routerLinkActive="active"
+             (click)="closeMenu()">
+            {{item.name}}
+          </a>
+
+          <div *ngIf="item.dropdown" class="dropdown-trigger"
+               (click)="toggleDropdown(item.name)"
+               [ngClass]="{'active': activeDropdown === item.name}">
+            {{item.name}}
+            <svg class="dropdown-arrow" viewBox="0 0 24 24">
+              <path d="M7 10l5 5 5-5H7z"/>
+            </svg>
+          </div>
+
+          <ul *ngIf="item.dropdown" class="dropdown-menu"
+              [@fadeInOut]
+              [ngClass]="{'show': activeDropdown === item.name}">
+            <li *ngFor="let dropItem of item.dropdown">
+              <a [routerLink]="dropItem.link" 
+                 (click)="closeMenu()">
+                {{dropItem.name}}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- CTA Button -->
+    <div class="cta-container">
+      <button class="cta-button" routerLink="/contact">
+        Get Started
+      </button>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" (click)="toggleMenu()"
+            [attr.aria-label]="isMenuOpen ? 'Close menu' : 'Open menu'">
+      <span [ngClass]="{'active': isMenuOpen}"></span>
+    </button>
+  </div>
+</header>
