@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-insights',
@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './insights.component.html',
   styleUrl: './insights.component.css'
 })
-export class InsightsComponent {
-
+export class InsightsComponent {  
+    @Input() message = 'hello steven!';
 }
