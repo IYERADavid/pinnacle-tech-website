@@ -16,7 +16,7 @@ const Industries = () => {
     {
       icon: 'industry-icon-3.svg',
       title: 'Finance',
-      description: 'Elevate your financial services with our secure and innovative platforms.'
+      description: 'Elevate your financial, insurance, and banking services with our secure and innovative platforms.'
     },
     {
       icon: 'industry-icon-4.svg',

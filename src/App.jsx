@@ -8,6 +8,7 @@ import About from "./sections/About";
 import Main from "./sections/Main";
 import { Contact } from "./sections/Contact";
 import Footer from "./sections/Footer";
+import Scroll from "./sections/Scroll";
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
     <Main />
     <Contact />
     <Footer />
+    <Scroll />
+
         
     </>
   );
