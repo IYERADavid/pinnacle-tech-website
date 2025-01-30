@@ -1,5 +1,5 @@
+import {useRef} from "react";
 import Home from "./sections/Home";
-import Header from "./sections/Header";
 import Hero from "./sections/Hero";
 import Services from "./sections/Services";
 import Industries from "./sections/Industries";
@@ -12,14 +12,17 @@ import Scroll from "./sections/Scroll";
 
 
 function App() {
+  const industrySectionRef = useRef(null);
+  const servicesSectionRef = useRef(null);
+  const innovationSectionRef = useRef(null);
+
   return (
     <>
-    <Home />
-    <Header />
-    <Hero />
-    <Services />
-    <Industries />
-    <Innovation />
+    <Home  innovationSectionRef={innovationSectionRef} />
+    <Hero industrySectionRef={industrySectionRef} servicesSectionRef={servicesSectionRef} />
+    <Services servicesSectionRef={servicesSectionRef} />
+    <Industries industrySectionRef={industrySectionRef} />
+    <Innovation innovationSectionRef={innovationSectionRef} />
     <About />
     <Main />
     <Contact />

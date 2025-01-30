@@ -7,7 +7,7 @@ import cyber_security1 from "../assets/images/cyber_security1.jpg";
 import managed_operation from "../assets/images/managed_operation.jpg";
 import cloud_solution1 from "../assets/images/cloud_solution1.jpg";
 import software_development from "../assets/images/software_development.jpg";
-const Services = () => {
+const Services = ({servicesSectionRef}) => {
   const services = [
     {
       category: "Cloud Solutions",
@@ -49,7 +49,7 @@ const Services = () => {
 
   
   return (
-    <section className="py-12 bg-gray-900 text-white ">
+    <section ref={servicesSectionRef} className="py-12 bg-gray-900 text-white ">
       <div className="max-w-16xl mx-auto sm:px-6 lg:px-8 w-full">
         <h2 className="text-3xl font-bold text-white mb-12">Our Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

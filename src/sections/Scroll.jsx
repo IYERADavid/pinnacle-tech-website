@@ -177,7 +177,7 @@ function MyComponent() {
 
   return (
     <div id="container">
-      {images.map((image, index) => (
+      {/* {images.map((image, index) => (
         <img
           key={index}
           id={`image-${index}`}
@@ -188,7 +188,7 @@ function MyComponent() {
             position: 'absolute', // add this to position the images absolutely
           }}
         />
-      ))}
+      ))} */}
     </div>
   );
 }

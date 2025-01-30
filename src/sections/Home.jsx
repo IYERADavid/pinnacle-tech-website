@@ -36,7 +36,7 @@ const slides = [
 ];
 
 
-const Home = () => {
+const Home = ({ innovationSectionRef }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const [hoveredCategory, setHoveredCategory] = useState(null);
@@ -50,6 +50,12 @@ const Home = () => {
   } else {
     setTheme('light');
   }
+  };
+
+  const scrollToSection = () => {
+    if (innovationSectionRef.current) {
+      innovationSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleThemeChange = () => {
@@ -268,7 +274,7 @@ const Home = () => {
                     <p className="text-xl text-gray-300 mb-8">
                       {slide.description}
                     </p>
-                    <button className="group inline-flex items-center bg-purple-700 text-white px-6 py-3 rounded-full hover:bg-purple-600 transition-colors duration-300">
+                    <button onClick={scrollToSection} className="group inline-flex items-center bg-purple-700 text-white px-6 py-3 rounded-full hover:bg-purple-600 transition-colors duration-300">
                       {slide.ctaText}
                       <i className="fa-solid fa-chevron-right ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                     </button>
