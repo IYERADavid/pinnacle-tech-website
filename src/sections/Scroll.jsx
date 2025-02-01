@@ -20,46 +20,89 @@ const CardSection = () => {
   const cardRefs = useRef([]);
 
   useEffect(() => {
-    const sections = cardRefs.current;
-    sections.forEach((section, index) => {
-      gsap.fromTo(
-       "sections",
-        { opacity: 0, x: index % 2 === 0 ? -100 : 100, scale: 0.9 },
+    gsap.utils.toArray(cardRefs.current).forEach((card, index) => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 70%",
+          end: "bottom center",
+          scrub: 1,
+        }
+      });
+
+      // Sequential animation with overlap
+      tl.fromTo(card,
+        { y: 100, opacity: 0, scale: 0.95 },
         {
+          y: 0,
           opacity: 1,
-          x: 0,
           scale: 1,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            end: "top 50%",
-            scrub: 1,
-          }
+          duration: 1.2,
+          ease: "power4.out",
+          delay: index * 0.2 // Stagger delay
         }
       );
+
+      // Continuous scale animation while in view
+      ScrollTrigger.create({
+        trigger: card,
+        start: "top 80%",
+        end: "bottom 20%",
+        onEnter: () => gsap.to(card, { scale: 1.05, duration: 0.8 }),
+        onLeaveBack: () => gsap.to(card, { scale: 1, duration: 0.5 })
+      });
     });
+
+    return () => ScrollTrigger.getAll().forEach(instance => instance.kill());
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full bg-black min-h-screen flex flex-col gap-20 py-20 items-center overflow-hidden">
-      {cards.map((item, index) => (
-        <div
-          key={index}
-          ref={el => cardRefs.current[index] = el}
-          className={`relative flex items-center justify-center w-[510px] h-[300px] bg-gray-900 rounded-none overflow-hidden shadow-lg group transition-transform transform
-    ${index === 0 ? "self-start ml-20" : ""}
-    ${index === cards.length - 1 ? "self-end mr-20" : ""}
-  `}
-        >
-          <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover transition-opacity group-hover:opacity-50" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            <h2 className="text-3xl font-bold">{item.title}</h2>
-            <p className="text-lg mt-2 max-w-md text-center">{item.description}</p>
+    <div 
+      ref={containerRef} 
+      className="w-full bg-black min-h-screen py-20 px-4 overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto flex flex-col gap-16 md:gap-24">
+        {cards.map((item, index) => (
+          <div
+            key={index}
+            ref={el => cardRefs.current[index] = el}
+            className="relative w-full h-[400px] md:h-[600px] rounded-none overflow-hidden 
+                     mx-auto transform transition-all duration-500 will-change-transform
+                     group hover:scale-[1.03] hover:shadow-2xl"
+            style={{ 
+              maxWidth: 'min(95%, 1200px)',
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.3)'
+            }}
+          >
+            <img 
+              src={item.image} 
+              alt={item.title} 
+              className="absolute inset-0 w-full h-full object-cover 
+                       transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent 
+                          flex flex-col items-center justify-end p-8 text-center">
+              <div className="translate-y-10 group-hover:translate-y-0 transition-all duration-500">
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 opacity-0 group-hover:opacity-100 
+                             transition-opacity duration-300">
+                  {item.title}
+                </h2>
+                <p className="text-base md:text-xl text-gray-200 max-w-2xl translate-y-4 
+                            group-hover:translate-y-0 opacity-0 group-hover:opacity-100 
+                            transition-all duration-500 delay-100">
+                  {item.description}
+                </p>
+              </div>
+              <div className="w-full mt-8 relative opacity-0 group-hover:opacity-100 
+                            transition-opacity duration-500 delay-200">
+                <div className="h-[2px] bg-white origin-left scale-x-0 
+                              group-hover:scale-x-100 transition-transform duration-500"
+                     style={{ transformOrigin: 'left center' }} />
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
