@@ -1,196 +1,110 @@
 /* eslint-disable no-unused-vars */
-/*import React, { useMemo, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import block_chain from "../assets/images/block_chain.jpg";
 import ai_powered from "../assets/images/ai_powered.jpg";
 import cloud_solution1 from "../assets/images/cloud_solution1.jpg";
+import digital_transformation from "../assets/images/digital_transformation.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
-function MyComponent() {
-  const containerRef = useRef(null);
-  const images = useMemo(
-    () => [block_chain, ai_powered, cloud_solution1],
-    []
-  );
 
-  useEffect(() => {
-    const container = containerRef.current;
-    const imageElements = images.map((_, index) => {
-      return document.getElementById(`image-${index}`);
-    });
-
-    // Calculate positions for each image
-    const positions = [
-      { x: '10%', y: '10%' },  // Top left with padding
-      { x: '50%', y: '50%' },  // Center
-      { x: '90%', y: '90%' }   // Bottom right with padding
-    ];
-
-    // Create timeline
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container,
-        start: "top top",
-        end: "+=300%",
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1,
-      }
-    });
-
-    // Add animations for each image
-    imageElements.forEach((image, index) => {
-      // Initial state
-      gsap.set(image, {
-        opacity: 0,
-        scale: 0.8,
-        x: positions[index].x,
-        y: positions[index].y,
-        xPercent: -50,
-        yPercent: -50,
-      });
-
-      // Add to timeline with sequence
-      tl.to(image, {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        ease: "power2.out",
-      }, index * 0.5) // Stagger the animations
-      
-      // If not the last image, fade it out before the next one appears
-      if (index < imageElements.length - 1) {
-        tl.to(image, {
-          opacity: 0.3,
-          scale: 0.9,
-          duration: 0.5,
-        }, `>0.5`);
-      }
-    });
-
-    return () => {
-      tl.kill();
-      ScrollTrigger.getAll().forEach(st => st.kill());
-    };
-  }, [images]);
-
-  return (
-    <div
-      ref={containerRef}
-      style={{
-        position: 'relative',
-        height: '100vh',
-        width: '100%',
-        overflow: 'hidden',
-        backgroundColor: '#f5f5f5'
-      }}
-    >
-      {images.map((image, index) => (
-        <img
-          key={index}
-          id={`image-${index}`}
-          src={image}
-          alt={`Scroll sequence ${index + 1}`}
-          style={{
-            position: 'absolute',
-            width: '400px',
-            height: '300px',
-            objectFit: 'cover',
-            borderRadius: '8px',
-            boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
-export default MyComponent;*/
-
-import React, { useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-const images = [
-  'block_chain.jpg',
-  'ai_powered.jpg',
-  'cloud_solution1.jpg',
-  'cyber_security2.jpg',
+const cards = [
+  { image: digital_transformation, title: "Blockchain Solutions", description: "Transform your business with secure blockchain technology" },
+  { image: ai_powered, title: "AI-Powered Innovation", description: "Leverage artificial intelligence for smarter operations" },
+  { image: cloud_solution1, title: "Cloud Solutions", description: "Scale your infrastructure with cloud technology" }
 ];
 
-function MyComponent() {
+const CardSection = () => {
+  const containerRef = useRef(null);
+  const cardRefs = useRef([]);
+
   useEffect(() => {
-    const imageElements = images.map((image, index) => {
-      const imageElement = document.getElementById(`image-${index}`);
-      return imageElement;
+    gsap.utils.toArray(cardRefs.current).forEach((card, index) => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 70%",
+          end: "bottom center",
+          scrub: 1,
+        }
+      });
+
+      // Sequential animation with overlap
+      tl.fromTo(card,
+        { y: 100, opacity: 0, scale: 0.95 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1.2,
+          ease: "power4.out",
+          delay: index * 0.2 // Stagger delay
+        }
+      );
+
+      // Continuous scale animation while in view
+      ScrollTrigger.create({
+        trigger: card,
+        start: "top 80%",
+        end: "bottom 20%",
+        onEnter: () => gsap.to(card, { scale: 1.05, duration: 0.8 }),
+        onLeaveBack: () => gsap.to(card, { scale: 1, duration: 0.5 })
+      });
     });
 
-    gsap.to(imageElements[0], {
-      y: 0,
-      x: 100, // start from top left, 100px from the left edge
-      opacity: 1,
-      scrollTrigger: {
-        trigger: '#container',
-        start: 'top center',
-        end: 'bottom center',
-        scrub: true,
-      },
-    });
-
-    gsap.to(imageElements[1], {
-      y: 0,
-      x: 0, // start from center
-      opacity: 1,
-      scrollTrigger: {
-        trigger: '#container',
-        start: 'top center',
-        end: 'bottom center',
-        scrub: true,
-      },
-    });
-
-    gsap.to(imageElements[2], {
-      y: 0,
-      x: -100, // start from right bottom, 100px from the right edge
-      opacity: 1,
-      scrollTrigger: {
-        trigger: '#container',
-        start: 'top center',
-        end: 'bottom center',
-        scrub: true,
-      },
-    });
-
-    gsap.to(imageElements[3], {
-      y: 0,
-      x: 0, // start from center
-      opacity: 1,
-      scrollTrigger: {
-        trigger: '#container',
-        start: 'top center',
-        end: 'bottom center',
-        scrub: true,
-      },
-    });
+    return () => ScrollTrigger.getAll().forEach(instance => instance.kill());
   }, []);
 
   return (
-    <div id="container">
-      {/* {images.map((image, index) => (
-        <img
-          key={index}
-          id={`image-${index}`}
-          src={image}
-          style={{
-            opacity: 0,
-            transform: 'translateY(100px)',
-            position: 'absolute', // add this to position the images absolutely
-          }}
-        />
-      ))} */}
+    <div 
+      ref={containerRef} 
+      className="w-full bg-black min-h-screen py-20 px-4 overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto flex flex-col gap-16 md:gap-24">
+        {cards.map((item, index) => (
+          <div
+            key={index}
+            ref={el => cardRefs.current[index] = el}
+            className="relative w-full h-[400px] md:h-[600px] rounded-none overflow-hidden 
+                     mx-auto transform transition-all duration-500 will-change-transform
+                     group hover:scale-[1.03] hover:shadow-2xl"
+            style={{ 
+              maxWidth: 'min(95%, 1200px)',
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.3)'
+            }}
+          >
+            <img 
+              src={item.image} 
+              alt={item.title} 
+              className="absolute inset-0 w-full h-full object-cover 
+                       transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent 
+                          flex flex-col items-center justify-end p-8 text-center">
+              <div className="translate-y-10 group-hover:translate-y-0 transition-all duration-500">
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 opacity-0 group-hover:opacity-100 
+                             transition-opacity duration-300">
+                  {item.title}
+                </h2>
+                <p className="text-base md:text-xl text-gray-200 max-w-2xl translate-y-4 
+                            group-hover:translate-y-0 opacity-0 group-hover:opacity-100 
+                            transition-all duration-500 delay-100">
+                  {item.description}
+                </p>
+              </div>
+              <div className="w-full mt-8 relative opacity-0 group-hover:opacity-100 
+                            transition-opacity duration-500 delay-200">
+                <div className="h-[2px] bg-white origin-left scale-x-0 
+                              group-hover:scale-x-100 transition-transform duration-500"
+                     style={{ transformOrigin: 'left center' }} />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+};
 
-export default MyComponent;
+export default CardSection;
