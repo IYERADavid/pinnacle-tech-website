@@ -49,29 +49,43 @@ const Services = () => {
 
   
   return (
-    <section className="py-12 bg-gray-900 text-white ">
-      <div className="max-w-16xl mx-auto sm:px-6 lg:px-8 w-full">
-        <h2 className="text-3xl font-bold text-white mb-12">Our Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <section className="py-16 bg-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl font-bold text-center mb-16">Our Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {services.map((service, index) => (
-            <div key={index} className="relative overflow-hidden group">
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-full object-cover transition-all duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex flex-col justify-center p-4 text-left transition-transform duration-500 group-hover:-translate-y-4">
-                <h4 className="text-2xl font-semibold text-purple-400 uppercase">
+            <div
+              key={index}
+              className="relative w-[276px] h-[424px] rounded-none overflow-hidden group cursor-pointer"
+            >
+             { /* Image Container with Zoom Effect */}
+              <div className="relative h-full transform transition-transform duration-500 group-hover:scale-105">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
+              </div>
+
+              {/* Persistent Heading */}
+              <div className="absolute top-0 left-0 w-full p-6 z-10">
+                <h4 className="text-sm font-semibold text-blue-400 uppercase tracking-wide mb-1">
                   {service.category}
                 </h4>
-                <h3 className="text-lg font-bold">{service.title}</h3>
+                <h3 className="text-xl font-bold leading-6">{service.title}</h3>
               </div>
-              {/* Hover details container */}
-              <div
-                className="absolute bottom-0 left-0 w-full p-4 text-white bg-gray-900 bg-opacity-50 transform translate-y-full opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
-              >
-                <p className="text-gray-300 text-center">{service.hoverDetails}</p>
+
+              {/* Slide-up Description */}
+              <div className="absolute inset-0 bg-gray-900/95 p-6 flex flex-col justify-end transform transition-all duration-500 translate-y-full group-hover:translate-y-0">
+                <div className="mb-4">
+                  <p className="text-gray-100 text-sm leading-relaxed">
+                    {service.hoverDetails}
+                  </p>
+                </div>
+                <button className="self-start px-4 py-2 text-xs font-semibold text-white uppercase tracking-widest border border-white rounded-full hover:bg-white hover:text-gray-900 transition-colors duration-300">
+                  Explore Service
+                </button>
               </div>
             </div>
           ))}
