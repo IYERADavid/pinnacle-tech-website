@@ -21,6 +21,16 @@ const CardSection = () => {
 
   useEffect(() => {
     gsap.utils.toArray(cardRefs.current).forEach((card, index) => {
+
+      // Set initial positions before animations
+      gsap.set(card, {
+        x: index === 0 ? '-50%' : index === 1 ? '50%' : 0,
+        y: index === 2 ? '50%' : '-50%',
+        scale: 1.2,
+        rotation: index === 0 ? -5 : index === 1 ? 5 : 0
+      });
+
+      // GSAP animation
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
