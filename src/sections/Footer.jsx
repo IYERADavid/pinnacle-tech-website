@@ -44,13 +44,13 @@ const Footer = () => {
               <ul className="space-y-2">
                 {links.map((link, index) => (
                   <li key={index}>
-                    <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+                    <a href="" className="text-gray-400 hover:text-purple-400 transition-colors">
                       {link}
                     </a>
                   </li>
                 ))}
               </ul>
-            </div> // div classsssssssssssssssssss
+            </div>
           ))}
         </div>
         <div className="mt-12 pt-8 border-t border-gray-800">
@@ -59,9 +59,9 @@ const Footer = () => {
               © 2024 Pinnacle Tech. All rights reserved.
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-purple-400">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-purple-400">Terms of Service</a>
-              <a href="#" className="text-gray-400 hover:text-purple-400">Cookie Policy</a>
+              <a href="privacy-policy" className="text-gray-400 hover:text-purple-400">Privacy Policy</a>
+              <a href="" className="text-gray-400 hover:text-purple-400">Terms of Service</a>
+              <a href="" className="text-gray-400 hover:text-purple-400">Cookie Policy</a>
             </div>
           </div>
         </div>
