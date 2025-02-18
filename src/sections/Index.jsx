@@ -10,6 +10,7 @@ import { Contact } from "./Contact";
 import Footer from "./Footer";
 import Scroll from "./Scroll";
 
+
 const Index = () => {
     const industrySectionRef = useRef(null);
     const servicesSectionRef = useRef(null);
