@@ -7,6 +7,7 @@ import retail_icon from "../assets/images/retail 11.jpg"
 import manufacturing_icon from "../assets/images/manufacture11.jpg"
 import  energy_icon from "../assets/images/energy 11.jpg"
 import { m } from 'framer-motion';
+import PropTypes from 'prop-types';
 
 const Industries = ({ industrySectionRef }) => {
   const industries = [
@@ -68,5 +69,10 @@ const Industries = ({ industrySectionRef }) => {
     </section>
   );
 };
-
+Industries.propTypes = {
+  industrySectionRef: PropTypes.oneOfType([
+    PropTypes.func, 
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ])
+};
 export default Industries;
