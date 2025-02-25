@@ -3,6 +3,7 @@ import React from 'react';
 import ai_powered from "../assets/images/ai_powered.jpg"
 import block_chain from "../assets/images/block_chain.jpg"
 import cyber_security2 from "../assets/images/cyber_security2.jpg"
+import PropTypes from 'prop-types';
 
 const projects = [
   {
@@ -54,6 +55,9 @@ const InnovationHub = ({ innovationSectionRef }) => {
       </div>
     </section>
   );
+};
+InnovationHub.propTypes = {
+  innovationSectionRef: PropTypes.object.isRequired,
 };
 
 export default InnovationHub;
