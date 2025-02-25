@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Hero = ({ industrySectionRef, servicesSectionRef }) => {
   
@@ -32,5 +33,9 @@ const Hero = ({ industrySectionRef, servicesSectionRef }) => {
     </div>
   );
 }
+Hero.propTypes = {
+  industrySectionRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  servicesSectionRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+};
 
 export default Hero;
