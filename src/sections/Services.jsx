@@ -64,21 +64,22 @@ const Services = ({servicesSectionRef}) => {
   ];
 
   return (
-    <section ref={servicesSectionRef} className="py-16 bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-12 tracking-tight">Our Services</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+    <section ref={servicesSectionRef} className="py-7 bg-gray-900 text-white">
+      <div className="max-w-10xl mx-auto px-20 w-full">   
+        <h2 className="text-4xl font-bold text-center mb-11 tracking-tight">Our Services</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-10 mx-6 sm:mx-3">
           {services.map((service, index) => (
-            <div
+            <div  
               key={index}
-              className="relative w-[276px] h-[424px] overflow-hidden rounded-none group cursor-pointer" 
-            >
-             { /* Image Container with Zoom Effect */}
+              className="relative w-[370px] h-[470px] overflow-hidden rounded-none group cursor-pointer shadow-lg transform transition hover:scale-105"
+            >  
+             { /* Image Container */}
              <div className="relative h-full transform transition-transform duration-500 ease-in-out group-hover:scale-105">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover"
+                  loading= "lazy"
+                  className= "w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
               </div>
@@ -98,7 +99,9 @@ const Services = ({servicesSectionRef}) => {
                     {service.hoverDetails}
                   </p>
                 </div>
-                <button className="self-start px-4 py-2 text-xs font-semibold text-white uppercase tracking-widest border border-white rounded-full hover:bg-white hover:text-gray-900 transition-colors duration-300">
+                <button className="self-start px-4 py-2 text-xs font-semibold text-white uppercase tracking-widest border border-white rounded-full hover:bg-white hover:text-gray-900 transition-colors duration-300"
+                aria-label={`Explore ${service.title}`}
+                >
                   Explore Service
                 </button>
               </div>
