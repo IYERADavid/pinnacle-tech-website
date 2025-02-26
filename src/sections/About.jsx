@@ -38,10 +38,10 @@ const AboutSection = () => {
    threshold: 0.1 
   })
   const stats = [
-    { title: "Years of Excellence", value: "10", icon: Award, suffix: "+" },
-    { title: "Global Clients Served", value: "200", icon: Briefcase, suffix: "+" },
-    { title: "Certified Experts", value: "14", icon: CheckCircle, suffix: "+" },
-    { title: "Countries Covered", value: "16", icon: Globe, suffix: "+" },
+    { title: "Years of Excellence", value: "2", icon: Award, suffix: "+" },
+    { title: "Global Clients Served", value: "4", icon: Briefcase, suffix: "+" },
+    { title: "Certified Experts", value: "3", icon: CheckCircle, suffix: "+" },
+    { title: "Countries Covered", value: "2", icon: Globe, suffix: "+" },
   ];
 
   return (
