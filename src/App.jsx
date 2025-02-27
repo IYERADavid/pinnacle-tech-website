@@ -1,6 +1,6 @@
 import Index from "./sections/Index";
-import PrivacyPolicy from "./sections/PrivacyPolicy";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import PrivacyPolicy from "./sections/privacyPolicy";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 const App = () => {

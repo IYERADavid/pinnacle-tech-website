@@ -67,54 +67,8 @@ const CardSection = () => {
   }, []);
 
   return (
-    <div 
-      ref={containerRef} 
-      className="w-full bg-black min-h-screen py-20 px-4 overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto flex flex-col gap-16 md:gap-24">
-        {cards.map((item, index) => (
-          <div
-            key={index}
-            ref={el => cardRefs.current[index] = el}
-            className="relative w-full h-[400px] md:h-[600px] rounded-none overflow-hidden 
-                     mx-auto transform transition-all duration-500 will-change-transform
-                     group hover:scale-[1.03] hover:shadow-2xl"
-            style={{ 
-              maxWidth: 'min(95%, 1200px)',
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.3)'
-            }}
-          >
-            <img 
-              src={item.image} 
-              alt={item.title} 
-              className="absolute inset-0 w-full h-full object-cover 
-                       transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent 
-                          flex flex-col items-center justify-end p-8 text-center">
-              <div className="translate-y-10 group-hover:translate-y-0 transition-all duration-500">
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 opacity-0 group-hover:opacity-100 
-                             transition-opacity duration-300">
-                  {item.title}
-                </h2>
-                <p className="text-base md:text-xl text-gray-200 max-w-2xl translate-y-4 
-                            group-hover:translate-y-0 opacity-0 group-hover:opacity-100 
-                            transition-all duration-500 delay-100">
-                  {item.description}
-                </p>
-              </div>
-              <div className="w-full mt-8 relative opacity-0 group-hover:opacity-100 
-                            transition-opacity duration-500 delay-200">
-                <div className="h-[2px] bg-white origin-left scale-x-0 
-                              group-hover:scale-x-100 transition-transform duration-500"
-                     style={{ transformOrigin: 'left center' }} />
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+    <></>
+  )
 };
 
 export default CardSection;
