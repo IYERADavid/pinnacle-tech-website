@@ -79,21 +79,21 @@ const Services = ({servicesSectionRef}) => {
                   src={service.image}
                   alt={service.title}
                   loading= "lazy"
-                  className= "w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                  className= "w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-90"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 via-gray-900/30 to-transparent transition-opacity duration-500 group-hover:opacity-100 opacity-90" />
               </div>
 
-              {/* Persistent Heading */}
-              <div className="absolute top-0 left-0 w-full p-6 space-y-2 z-10">
-              <span className="text-xs font-semibold text-blue-400 uppercase tracking-widest">
+              {/* Heading */}
+              <div className="absolute top-0 left-0 w-full p-6 space-y-2 z-10 transition-all duration-500 translate-y-0 group-hover:-translate-y-2">
+              <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest transition-all duration-500">
                   {service.category}
                 </span>
                 <h3 className="text-2xl font-bold leading-tight tracking-tight text-white">{service.title}</h3>
               </div>
 
               {/* Slide-up Description */}
-              <div className="absolute inset-0 bg-gray-900/95 p-6 flex flex-col justify-end transform transition-all duration-500 translate-y-full group-hover:translate-y-0">
+              <div className="absolute inset-0 transition-all duration-500 p-6 flex flex-col justify-end transform translate-y-full group-hover:translate-y-0 shadow-xl border border-transparent group-hover:shadow-2xl group-hover:border-blue-400/20 bg-gradient-to-t from-black/70 to-transparent">  
                 <div className="mb-4">
                   <p className="text-gray-100 text-sm leading-snug font-medium">
                     {service.hoverDetails}
