@@ -8,7 +8,6 @@ import About from "./About";
 import Main from "./Main";
 import { Contact } from "./Contact";
 import Footer from "./Footer";
-import Scroll from "./Scroll";
 
 
 const Index = () => {
@@ -27,7 +26,6 @@ const Index = () => {
         <Main />
         <Contact />
         <Footer />
-        <Scroll />
       </>
     )
 }
