@@ -22,7 +22,7 @@ const CardSection = () => {
   useEffect(() => {
     gsap.utils.toArray(cardRefs.current).forEach((card, index) => {
 
-      // Set initial positions before animations
+      
       gsap.set(card, {
         x: index === 0 ? '-50%' : index === 1 ? '50%' : 0,
         y: index === 2 ? '50%' : '-50%',
@@ -30,7 +30,6 @@ const CardSection = () => {
         rotation: index === 0 ? -5 : index === 1 ? 5 : 0
       });
 
-      // GSAP animation
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -40,7 +39,6 @@ const CardSection = () => {
         }
       });
 
-      // Sequential animation with overlap
       tl.fromTo(card,
         { y: 100, opacity: 0, scale: 0.95 },
         {
@@ -49,11 +47,10 @@ const CardSection = () => {
           scale: 1,
           duration: 1.2,
           ease: "power4.out",
-          delay: index * 0.2 // Stagger delay
+          delay: index * 0.2
         }
       );
 
-      // Continuous scale animation while in view
       ScrollTrigger.create({
         trigger: card,
         start: "top 80%",

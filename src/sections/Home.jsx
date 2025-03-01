@@ -8,6 +8,7 @@ import ai_powered from "../assets/images/ai_powered.jpg"
 import 'aos/dist/aos.css';
 import virtual_reality from "../assets/images/virtual_reality.jpg"
 import block_chain from "../assets/images/block_chain.jpg"
+import PropTypes from 'prop-types';
 
 
 const slides = [
@@ -78,7 +79,7 @@ const Home = ({ innovationSectionRef }) => {
         setShowNavbar(false);
       }
 
-      setLastScrollPosition(currentScrollPosition); //update scroll positionnnnnnnnnnnn
+      setLastScrollPosition(currentScrollPosition); 
       };
       
       window.addEventListener('scroll', handleScroll);
@@ -324,5 +325,8 @@ const Home = ({ innovationSectionRef }) => {
           </div>
         );
       };
-
+      Home.propTypes = {
+        innovationSectionRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+      };
+      
       export default Home;

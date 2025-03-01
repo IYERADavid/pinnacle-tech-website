@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <div className="max-w-3xl mx-auto">
       <p className="text-3xl text-black font-semibold text-black-900 mb-6">
-        Every day, Pinnacle Tech helps companies of all sizes, across industries, succeed by delivering software solutions that drive growth and innovation.
+      Pinnacle Tech empowers organizations across industries to accelerate growth and innovation through transformative software solutions.
       </p>
     </div>  
   );
