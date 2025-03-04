@@ -14,32 +14,32 @@ const Industries = ({ industrySectionRef }) => {
     {
       icon: manufacturing_icon,
       title: 'Manufacturing',
-      description: 'Optimize your manufacturing operations with our industry-leading solutions.'
+      description: 'Drive operational efficiency and innovation with our advanced manufacturing solutions, designed to optimize production and reduce costs.'
     },
     {
       icon: healthcare_icon,
       title: 'Healthcare',
-      description: 'Revolutionize your healthcare services with our cutting-edge technology.'
+      description: 'Empower your healthcare services with our state-of-the-art technology, ensuring better patient outcomes and operational efficiency.'
     },
     {
       icon: finance_icon,
       title: 'Finance',
-      description: 'Elevate your financial, insurance, and banking services with our secure and innovative platforms.'
+      description: 'Innovate your financial operations with our AI-driven solutions that streamline processes and improve decision-making.'
     },
     {
       icon: retail_icon,
       title: 'Retail',
-      description: 'Enhance your retail experience with our data-driven insights and solutions.'
+      description: 'Deliver exceptional customer experiences with our data-driven retail solutions, tailored to enhance engagement and boost sales.'
     },
     {
       icon: energy_icon,
       title: 'Energy',
-      description: 'Transform your energy operations with our sustainable and efficient technologies.'
+      description: 'Lead the energy transition with our smart technologies that optimize resource management and support renewable energy integration.'
     },
     {
       icon: education_icon,
       title: 'Education',
-      description: 'Empower your educational institution with our innovative tech solutions.'
+      description: 'Empower educators and students with our advanced educational technologies, fostering a collaborative and immersive learning environment.'
     }
   ];
 

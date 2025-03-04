@@ -1,5 +1,5 @@
 import Index from "./sections/Index";
-import PrivacyPolicy from "./sections/privacyPolicy";
+import PrivacyPolicy from "./sections/PrivacyPolicy";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
