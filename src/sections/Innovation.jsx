@@ -9,19 +9,19 @@ const projects = [
   {
     title: "AI-Powered Analytics",
     description:
-      "Leveraging artificial intelligence to deliver real-time insights that drive business growth.",
+      "Harnessing predictive AI to deliver intelligent, real-time insights that drive strategic business growth.",
     image: ai_powered,
   },
   {
     title: "Blockchain Solutions",
     description:
-      "Building secure, transparent blockchain applications tailored to industry needs.",
+      "Building scalable, decentralized blockchain platforms that ensure transparency and data integrity.",
     image: block_chain,
   },
   {
     title: "Cybersecurity Innovations",
     description:
-      "Advanced security solutions to protect data integrity and ensure privacy.",
+      "Deploying next-gen, proactive security measures to safeguard your digital assets and ensure compliance.",
     image: cyber_security2,
   },
 ];
@@ -32,7 +32,7 @@ const InnovationHub = ({ innovationSectionRef }) => {
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold text-gray-800 mb-6">Innovation Hub</h2>
         <p className="text-gray-600 mb-10">
-          Discover how Pinnacle Tech is pushing the boundaries in technology to deliver innovative solutions.
+         Discover how Pinnacle Tech is pioneering transformative technologies to deliver future-ready solutions.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
