@@ -100,22 +100,6 @@ const AboutSection = () => {
             </p>
           </div>
         </div>
-
-        {/* Professional CTA Section */}
-        <div className="text-center mt-20 bg-gradient-to-r from-purple-700 to-blue-600 rounded-2xl p-12 shadow-xl">
-          <h2 className="text-3xl font-bold text-white mb-6">
-            Ready to Lead Your Digital Evolution?
-          </h2>
-          <p className="text-lg text-purple-100 mb-8 max-w-2xl mx-auto">
-            Schedule your complimentary technology assessment with our solution architects.
-          </p>
-          <button 
-            className="inline-flex items-center px-8 py-4 bg-white text-purple-700 rounded-lg hover:bg-opacity-90 transition-all duration-300 font-semibold text-lg"
-            aria-label="Start digital transformation consultation">
-            Start Your Journey
-            <ArrowRight className="ml-3 w-6 h-6" />
-          </button>
-        </div>
       </div>
     </div>
   );
