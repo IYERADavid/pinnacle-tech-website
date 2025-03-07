@@ -5,7 +5,6 @@ import Services from "./Services";
 import Industries from "./Industries";
 import Innovation from "./Innovation";
 import About from "./About";
-import Main from "./Main";
 import { Contact } from "./Contact";
 import Footer from "./Footer";
 
@@ -23,7 +22,6 @@ const Index = () => {
         <Industries industrySectionRef={industrySectionRef} />
         <Innovation innovationSectionRef={innovationSectionRef} />
         <About />
-        <Main />
         <Contact />
         <Footer />
       </>
