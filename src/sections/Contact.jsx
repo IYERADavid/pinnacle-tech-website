@@ -186,7 +186,7 @@ export const Contact = () => {
           <button
             type="submit"
             disabled={state.submitting}
-            className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white py-4 px-6 rounded-lg font-semibold hover:from-purple-700 hover:to-purple-800 transition-all duration-300 shadow-md hover:shadow-lg" 
+            className="w-full bg-gradient-to-r from-purple-700 to-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:from-purple-700 hover:to-purple-800 transition-all duration-300 shadow-md hover:shadow-lg" 
           >
             {state.submitting ? 'Sending...' : 'Submit Request'} {/* Loading state */}
           </button>
