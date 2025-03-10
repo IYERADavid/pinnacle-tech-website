@@ -53,15 +53,38 @@ const Footer = () => {
             </div>
           ))}
         </div>
+        
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 text-sm">
-              © 2024 Pinnacle Tech. All rights reserved.
+           <div className="text-gray-400 text-sm mb-4 md:mb-0">
+              <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+              <p>Email: <a href="mailto:pinnacletech6@gmail.com" className="text-gray-400 hover:text-purple-400">pinnacletech6@gmail.com</a></p>
+              <p>Phone: <a href="tel:+250 798 697 626" className="text-gray-400 hover:text-purple-400">+250 798 697 626</a></p>
+              <p>Address: 24V3+JJH, Kigali, Rwanda</p>
             </div>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="privacy-policy" className="text-gray-400 hover:text-purple-400">Privacy Policy</a>
-              <a href="" className="text-gray-400 hover:text-purple-400">Terms of Service</a>
-              <a href="" className="text-gray-400 hover:text-purple-400">Cookie Policy</a>
+
+            <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
+              <div className="text-gray-400 text-sm">
+                <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
+                <div className="flex space-x-4">
+                  <a href="#" className="text-gray-400 hover:text-purple-400">LinkedIn</a>
+                  <a href="#" className="text-gray-400 hover:text-purple-400">Twitter</a>
+                  <a href="#" className="text-gray-400 hover:text-purple-400">Instagram</a>
+                </div>
+              </div>
+
+              <div className="text-gray-400 text-sm">
+                <h3 className="text-lg font-semibold mb-4">Legal</h3>
+                <div className="flex space-x-4">
+                  <a href="privacy-policy" className="text-gray-400 hover:text-purple-400">Privacy Policy</a>
+                  <a href="#" className="text-gray-400 hover:text-purple-400">Terms of Service</a>
+                  <a href="#" className="text-gray-400 hover:text-purple-400">Cookie Policy</a>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-gray-400 text-sm">
+              © 2025 Pinnacle Tech. All rights reserved.
             </div>
           </div>
         </div>
