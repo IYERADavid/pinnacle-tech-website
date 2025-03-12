@@ -64,7 +64,7 @@ const Services = ({servicesSectionRef}) => {
   ];
 
   return (
-    <section ref={servicesSectionRef} className="py-7 bg-gray-900 text-white">
+    <section id="servicesSectionRef" ref={servicesSectionRef} className="py-7 bg-gray-900 text-white">
       <div className="max-w-10xl mx-auto px-20 w-full">   
         <h2 className="text-4xl font-bold text-center mb-11 tracking-tight">Our Services</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-10 mx-6 sm:mx-3">
