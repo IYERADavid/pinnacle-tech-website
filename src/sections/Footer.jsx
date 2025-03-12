@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin, FaXTwitter, FaInstagram } from "react-icons/fa6";
 
 const Footer = () => {
   const footerLinks = {
