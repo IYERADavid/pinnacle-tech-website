@@ -76,7 +76,7 @@ const Footer = () => {
                 <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
                 <div className="flex space-x-4">
                   <a
-                    href="https://www.Linkedln.com"
+                    href="https://www.linkedin.com/feed/"
                     className="text-gray-400 hover:text-purple-400"
                   >
                     <FaLinkedin size={20} />
