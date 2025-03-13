@@ -73,7 +73,7 @@ const Footer = () => {
               {/* Follow Us section */}
               <div className="text-gray-400 text-sm">
                 <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
-                <div className="flex space-x-4">
+                <div className="flex space-x-6">
                   <a
                     href="https://www.Linkedln.com"
                     className="text-gray-400 hover:text-purple-400"
@@ -81,16 +81,10 @@ const Footer = () => {
                     <FaLinkedin size={20} />
                   </a>
                   <a
-                    href="https://x.com/"
+                    href="https://x.com/PinnacleTech6"
                     className="text-gray-400 hover:text-purple-400"
                   >
                     <FaXTwitter size={20} />
-                  </a>
-                  <a
-                    href="https://www.instagram.com"
-                    className="text-gray-400 hover:text-purple-400"
-                  >
-                    <FaInstagram size={20} />
                   </a>
                 </div>
               </div>
