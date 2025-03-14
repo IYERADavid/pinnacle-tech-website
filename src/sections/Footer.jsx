@@ -75,11 +75,7 @@ const Footer = () => {
                 <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
                 <div className="flex space-x-6">
                   <a
-<<<<<<< Updated upstream
-                    href="https://www.linkedin.com/feed/"
-=======
-                    href="https://www.Linkedln.com/pinnacle tech"
->>>>>>> Stashed changes
+                    href="https://www.Linkedln.com/"
                     className="text-gray-400 hover:text-purple-400"
                   >
                     <FaLinkedin size={20} />
