@@ -93,24 +93,6 @@ const Home = ({ innovationSectionRef }) => {
     return () => clearInterval(timer);
   }, []);
 
-  const menuItems = {
-    Services: [
-      { title: 'Digital Transformation', items: ['Cloud Computing', 'AI & ML', 'Data Analytics'] },
-      { title: 'Enterprise Solutions', items: ['ERP Services', 'CRM Solutions', 'Business Intelligence'] },
-      { title: 'Cybersecurity', items: ['Security Operations', 'Risk Management', 'Compliance'] },
-    ],
-    Industries: [
-      { title: 'Banking & Finance', items: ['Retail Banking', 'Investment Services', 'Insurance'] },
-      { title: 'Healthcare', items: ['Digital Health', 'Medical Devices', 'Healthcare Analytics'] },
-      { title: 'Manufacturing', items: ['Smart Manufacturing', 'Supply Chain', 'Quality Control'] },
-    ],
-    Insights: [
-      { title: 'Research', items: ['Reports', 'Case Studies', 'Whitepapers'] },
-      { title: 'Thought Leadership', items: ['Blogs', 'Articles', 'Newsletters'] },
-      { title: 'Events', items: ['Webinars', 'Conferences', 'Workshops'] },
-    ]
-  };
-
   const ThemeSwitch = () => {
     if (!mounted) return null;
 
@@ -158,49 +140,20 @@ const Home = ({ innovationSectionRef }) => {
 
             {/* Navigation Items */}
             <div className="flex">
-              {Object.keys(menuItems).map((category) => (
-                <div 
-                  key={category}
-                  onMouseEnter={() => setHoveredCategory(category)}
-                  onMouseLeave={() => setHoveredCategory(null)}
-                  className="relative"
-                >
-                  <button 
-                    className={`h-16 px-4 text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 relative
-                      ${hoveredCategory === category ? 'text-purple-800 dark:text-purple-400 border-b-2 border-purple-800 dark:border-purple-400' : ''}`}
-                  >
-                    {category}
-                  </button>
-                  
-                  {hoveredCategory === category && (
-                    <div 
-                      className="absolute left-0 w-screen bg-white dark:bg-gray-800 border-b shadow-lg animate-fadeIn"
-                      style={{ width: '100vw', left: '50%', transform: 'translateX(-50%)' }}
-                      onMouseEnter={() => setHoveredCategory(category)}
-                      onMouseLeave={() => setHoveredCategory(null)}
-                    >
-                      <div className="max-w-7xl mx-auto p-8 grid grid-cols-3 gap-8">
-                        {menuItems[category].map((section, idx) => (
-                          <div key={idx} className="space-y-4">
-                            <h3 className="text-lg font-semibold text-purple-800 dark:text-purple-400">{section.title}</h3>
-                            <ul className="space-y-2">
-                              {section.items.map((item, itemIdx) => (
-                                <li key={itemIdx}>
-                                  <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 block py-1 transition-colors duration-150">
-                                    {item}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
 
-              <a href="#" className="h-16 px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 transition-colors duration-150">
+              <a href="#servicesSectionRef" className="h-16 px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 transition-colors duration-150">
+                Services
+              </a>
+
+              <a href="#industrySectionRef" className="h-16 px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 transition-colors duration-150">
+                Industries
+              </a>
+
+              <a href="#innovationSectionRef" className="h-16 px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 transition-colors duration-150">
+                Insights
+              </a>
+
+              <a href="#aboutSectionRef" className="h-16 px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 transition-colors duration-150">
                 About Us
               </a>
             </div>

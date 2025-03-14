@@ -28,7 +28,7 @@ const projects = [
 
 const InnovationHub = ({ innovationSectionRef }) => {
   return (
-    <section ref={innovationSectionRef} className="bg-gray-100 py-12">
+    <section id='innovationSectionRef' ref={innovationSectionRef} className="bg-gray-100 py-12">
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold text-gray-800 mb-6">Innovation Hub</h2>
         <p className="text-gray-600 mb-10">
