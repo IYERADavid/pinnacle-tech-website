@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
 import digital_transformation from "../assets/images/digital_transformation.jpg";
 import PropTypes from 'prop-types';

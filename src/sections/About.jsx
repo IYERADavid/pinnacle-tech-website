@@ -1,7 +1,4 @@
-/* eslint-disable no-unused-vars */
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import { ArrowRight, CheckCircle, Users, Globe, Lightbulb, Icon, Award, Briefcase, Shield } from 'lucide-react';
+import { CheckCircle, Globe, Lightbulb, Award, Briefcase, Shield } from 'lucide-react';
 import { useInView } from "react-intersection-observer";
 import PropTypes from 'prop-types';
 import CountUp from 'react-countup';
