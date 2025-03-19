@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import education_icon from "../assets/images/education 11.jpg"
 import healthcare_icon from "../assets/images/healthcare 11.jpg"

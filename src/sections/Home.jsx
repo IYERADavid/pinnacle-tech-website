@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { Sun, Moon, Monitor, Globe } from 'lucide-react';
 import { useTheme } from 'next-themes';

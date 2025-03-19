@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import ai_powered from "../assets/images/ai_powered.jpg"
 import block_chain from "../assets/images/block_chain.jpg"

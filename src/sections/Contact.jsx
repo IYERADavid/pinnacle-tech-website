@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useForm } from "@formspree/react";
 import { ArrowRight } from "lucide-react";

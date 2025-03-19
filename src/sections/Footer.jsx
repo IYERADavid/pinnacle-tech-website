@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
 import { FaLinkedin, FaXTwitter, FaInstagram } from "react-icons/fa6";
 
