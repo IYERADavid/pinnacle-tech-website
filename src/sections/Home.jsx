@@ -98,25 +98,11 @@ const Home = ({ innovationSectionRef }) => {
     return (
       <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 p-1 rounded-lg">
         <button
-          onClick={handleThemeChange}
-          className={`p-2 rounded-md ${theme === 'light' ? 'bg-white shadow-sm' : ''}`}
-          aria-label="Light Mode"
-        >
-        {theme === 'light' ? <Moon className = "w-4 h-4" /> : < Sun className = "w-4 h-4" />}
-        </button>
-        <button
           onClick={() => setTheme('dark')}
           className={`p-2 rounded-md ${theme === 'dark' ? 'bg-gray-700 shadow-sm' : ''}`}
           aria-label="Dark Mode"
         >
           <Moon className="w-4 h-4" />
-        </button>
-        <button
-          onClick={() => setTheme('system')}
-          className={`p-2 rounded-md ${theme === 'system' ? 'bg-white dark:bg-gray-700 shadow-sm' : ''}`}
-          aria-label="System Theme"
-        >
-          <Monitor className="w-4 h-4" />
         </button>
       </div>
     );

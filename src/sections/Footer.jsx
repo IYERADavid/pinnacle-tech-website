@@ -66,7 +66,7 @@ const Footer = () => {
                   +250 798 697 626
                 </a>
               </p>
-              <p>Address: 24V3+JJH, Kigali, Rwanda</p>
+              <p>Address: kg 403 st Kigali, Rwanda</p>
             </div>
             <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
               {/* Follow Us section */}
