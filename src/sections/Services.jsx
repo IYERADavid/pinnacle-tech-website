@@ -70,7 +70,7 @@ const Services = ({servicesSectionRef}) => {
           {services.map((service, index) => (
             <div  
               key={index}
-              className="relative w-[370px] h-[470px] overflow-hidden rounded-none group cursor-pointer shadow-lg transform transition hover:scale-105"
+              className="relative w-[250px] h-[400px] overflow-hidden rounded-none group cursor-pointer shadow-lg transform transition hover:scale-105"
             >  
              { /* Image Container */}
              <div className="relative h-full transform transition-transform duration-500 ease-in-out group-hover:scale-105">
