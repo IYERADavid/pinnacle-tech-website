@@ -73,10 +73,10 @@ export const Contact = () => {
           <p className="text-gray-600">Complete the form below and our experts will contact you within 24 hours</p>
         </div>
         <form onSubmit={handleFormSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                First Name *
+                Full Name *
               </label>
               <input
                 type="text"
@@ -110,10 +110,10 @@ export const Contact = () => {
               placeholder="john.doe@company.com"  
             />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Job Title
+                Role *
               </label>
               <input
                 type="text"
