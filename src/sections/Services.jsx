@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import IT_consulting1 from "../assets/images/IT_consulting1.jpg";
 import IT_consulting2 from "../assets/images/IT_consulting2.jpg";
 import cyber_security1 from "../assets/images/cyber_security1.jpg";
-import managed_operation from "../assets/images/managed_operation.jpg";
 import cloud_solution1 from "../assets/images/cloud_solution1.jpg";
 import software_development from "../assets/images/software_development.jpg";
 import digitalCreativeServices from "../assets/images/digitalCreativeServices.jpg";
@@ -64,13 +63,13 @@ const Services = ({servicesSectionRef}) => {
 
   return (
     <section id="servicesSectionRef" ref={servicesSectionRef} className="py-7 bg-gray-900 text-white">
-      <div className="max-w-10xl mx-auto px-20 w-full">   
-        <h2 className="text-4xl font-bold text-center mb-11 tracking-tight">Our Services</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-10 mx-6 sm:mx-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 w-full">{/* max-w-10xl px-20*/}   
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-11 tracking-tight">Our Services</h2>{/* text-4xl */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-6 sm:gap-8 lg:gap-10 px-4 sm:px-0">{/*mx-6 sm:mx-3*/ }
           {services.map((service, index) => (
             <div  
               key={index}
-              className="relative w-[250px] h-[400px] overflow-hidden rounded-none group cursor-pointer shadow-lg transform transition hover:scale-105"
+              className="relative w-full sm:w-[370px] h-[350px] overflow-hidden rounded-none group cursor-pointer shadow-lg transform transition hover:scale-105"
             >  
              { /* Image Container */}
              <div className="relative h-full transform transition-transform duration-500 ease-in-out group-hover:scale-105">
