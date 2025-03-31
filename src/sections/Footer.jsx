@@ -77,7 +77,7 @@ const Footer = () => {
               <h3 className="text-lg font-semibold mb-2 text-white">Legal</h3>
               <div className="flex space-x-4">
                 <a href="/privacy-policy" className="hover:text-purple-400">Privacy Policy</a>
-                <a href="/terms-of-service" className="hover:text-purple-400">Terms of Service</a>
+                <a href="/terms-and-services" className="hover:text-purple-400">Terms of Service</a>
                 <a href="/cookie-policy" className="hover:text-purple-400">Cookie Policy</a>
               </div>
             </div>
