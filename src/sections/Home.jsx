@@ -3,12 +3,11 @@ import { Sun, Moon, Monitor, Globe } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { ThemeProvider } from 'next-themes';
 import { ArrowRightIcon } from '@heroicons/react/solid';
-import ai_powered from "../assets/images/ai_powered.jpg"
+import ai_powered from "../assets/images/ai_powered.jpg";
 import 'aos/dist/aos.css';
-import virtual_reality from "../assets/images/virtual_reality.jpg"
-import block_chain from "../assets/images/block_chain.jpg"
+import virtual_reality from "../assets/images/virtual_reality.jpg";
+import block_chain from "../assets/images/block_chain.jpg";
 import PropTypes from 'prop-types';
-
 
 const slides = [
   {
@@ -34,22 +33,13 @@ const slides = [
   }
 ];
 
-
 const Home = ({ innovationSectionRef }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-
-
-  const handleScroll = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-  } else {
-    setTheme('light');
-  }
-  };
+  const [language, setLanguage] = useState('en'); // Added state for language management
+  const [isLanguageSelectorOpen, setIsLanguageSelectorOpen] = useState(false); // Added state for language selector visibility
 
   const scrollToSection = () => {
     if (innovationSectionRef.current) {
@@ -61,7 +51,7 @@ const Home = ({ innovationSectionRef }) => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
-  //state to manage navbar visibility
+  // state to manage navbar visibility
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollPosition, setLastScrollPosition] = useState(0);
 
@@ -71,18 +61,18 @@ const Home = ({ innovationSectionRef }) => {
     const handleScroll = () => {
       const currentScrollPosition = window.scrollY;
 
-      // Show the navbar if the user scrolls up
+      // show the navbar if the user scrolls up
       if (currentScrollPosition < lastScrollPosition || currentScrollPosition < 10) {
-        setShowNavbar(true);  // Show the navbar if the user scrolls up
+        setShowNavbar(true);
       } else {
         setShowNavbar(false);
       }
 
-      setLastScrollPosition(currentScrollPosition); 
-      };
-      
-      window.addEventListener('scroll', handleScroll);
-      return () =>  window.removeEventListener('scroll', handleScroll);
+      setLastScrollPosition(currentScrollPosition);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollPosition]);
 
   useEffect(() => {
@@ -92,179 +82,165 @@ const Home = ({ innovationSectionRef }) => {
     return () => clearInterval(timer);
   }, []);
 
-  const ThemeSwitch = () => {
-    if (!mounted) return null;
+  // Language Selector Component
+  const LanguageSelector = () => {
+    const languages = [
+      { code: 'en', name: 'English' },
+      { code: 'fr', name: 'Français' },
+    ];
 
     return (
-      <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 p-1 rounded-lg">
+      <div className="relative">
         <button
-          onClick={() => setTheme('dark')}
-          className={`p-2 rounded-md ${theme === 'dark' ? 'bg-gray-700 shadow-sm' : ''}`}
-          aria-label="Dark Mode"
+          onClick={() => setIsLanguageSelectorOpen(!isLanguageSelectorOpen)}
+          className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150"
         >
-          <Moon className="w-4 h-4" />
+          <Globe className="w-6 h-6 text-gray-600 dark:text-gray-400" />
         </button>
+        {isLanguageSelectorOpen && (
+          <div className="absolute right-0 mt-2 bg-white dark:bg-gray-800 shadow-lg rounded-lg p-2">
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => {
+                  setLanguage(lang.code); // update the language state
+                  setIsLanguageSelectorOpen(false); // close the selector
+                }}
+                className={`block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 ${
+                  language === lang.code ? 'font-bold' : ''
+                }`}
+              >
+                {lang.name}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     );
   };
 
   if (!mounted) return null;
 
-
   return (
-    <div className="min-h-screen bg-white dark:bg-white transition-colors duration-300">
-      <nav className={`bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 fixed top-0 w-full z-50 shadow-sm transition-transform duration-300 ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <nav
+        className={`bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 fixed top-0 w-full z-50 shadow-sm transition-transform duration-300 ${
+          showNavbar ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
               <div className="w-32">
-                <span className="text-xl font-bold text-purple-700 dark:text-purple-400">PinnacleTech</span>
+                <span className="text-xl font-bold text-purple-700 dark:text-purple-500">PinnacleTech</span>
               </div>
             </div>
 
             {/* Navigation Items */}
             <div className="flex">
-
-              <a href="#servicesSectionRef" className="h-16 px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 transition-colors duration-150">
+              <a
+                href="#servicesSectionRef"
+                className="h-16 px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 transition-colors duration-150"
+              >
                 Services
               </a>
-
-              <a href="#industrySectionRef" className="h-16 px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 transition-colors duration-150">
+              <a
+                href="#industrySectionRef"
+                className="h-16 px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 transition-colors duration-150"
+              >
                 Industries
               </a>
-
-              <a href="#innovationSectionRef" className="h-16 px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 transition-colors duration-150">
+              <a
+                href="#innovationSectionRef"
+                className="h-16 px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 transition-colors duration-150"
+              >
                 Insights
               </a>
-
-              <a href="#aboutSectionRef" className="h-16 px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 transition-colors duration-150">
+              <a
+                href="#aboutSectionRef"
+                className="h-16 px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 transition-colors duration-150"
+              >
                 About Us
               </a>
             </div>
 
-            {/* Theme Switcher and Language */}
+            {/* theme switcher and language */}
             <div className="flex items-center gap-4">
-              <ThemeSwitch />
-              <button className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150">
-                <Globe className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+              <button
+                onClick={handleThemeChange}
+                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150"
+              >
+                {theme === 'dark' ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
               </button>
+              <LanguageSelector />
             </div>
           </div>
         </div>
       </nav>
 
-      {hoveredCategory && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
-          style={{ top: '64px' }}
-        />
-      )}
-
       {/* Main Content Area */}
-  
-      
-        <div className="relative h-screen bg-gray-900 overflow-hidden">
-          {/* Background Slides */}
-          {slides.map((slide, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ${
-                currentSlide === index ? 'opacity-100' : 'opacity-0'
-              }`}
-              style={{
-                backgroundImage: `url(${slide.bgImage})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                zIndex: -1,
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent z-10" />
-              <img
-                src={slide.bgImage}
-                alt={slide.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
-
-          {/* Main Content */}
-
-          <div className="relative z-20 h-full">
-            <div className="max-w-7xl mx-auto px-4 h-full flex items-center">
-              <div className="max-w-3xl">
-                {slides.map((slide, index) => (
-                  <div
-                    key={index}
-                    className={`transition-all duration-1000 ${
-                      currentSlide === index
-                        ? 'opacity-100 translate-y-0'
-                        : 'opacity-0 translate-y-4'
-                    }`}
-                    style={{ display: currentSlide === index ? 'block' : 'none' }}
-                  >
-                    <h2 className="text-sm font-semibold text-purple-400 uppercase tracking-wider mb-4">
-                      {slide.subtitle}
-                    </h2>
-                    <h1 className="text-5xl font-bold text-white mb-6">
-                      {slide.title}
-                    </h1>
-                    <p className="text-xl text-gray-300 mb-8">
-                      {slide.description}
-                    </p>
-                    <button onClick={scrollToSection} className="group inline-flex items-center bg-purple-700 text-white px-6 py-3 rounded-full hover:bg-purple-600 transition-colors duration-300">
-                      {slide.ctaText}
-                      <i className="fa-solid fa-chevron-right ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
+      <div className="relative h-screen bg-gray-900 overflow-hidden">
+        {/* Background Slides */}
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              currentSlide === index ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{
+              backgroundImage: `url(${slide.bgImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              zIndex: -1,
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent z-10" />
           </div>
+        ))}
 
-          {/* Slide Navigation */}
-
-
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
-            <div className="flex space-x-3">
-              {slides.map((_, index) => (
-                <button
+        {/* Main Content */}
+        <div className="relative z-20 h-full">
+          <div className="max-w-7xl mx-auto px-4 h-full flex items-center">
+            <div className="max-w-3xl">
+              {slides.map((slide, index) => (
+                <div
                   key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  className={`transition-all duration-1000 ${
                     currentSlide === index
-                      ? 'bg-purple-500 w-8'
-                      : 'bg-white/50 hover:bg-white/80'
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-4'
                   }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
+                  style={{ display: currentSlide === index ? 'block' : 'none' }}
+                >
+                  <h2 className="text-sm font-semibold text-purple-400 uppercase tracking-wider mb-4">
+                    {slide.subtitle}
+                  </h2>
+                  <h1 className="text-5xl font-bold text-white mb-6">
+                    {slide.title}
+                  </h1>
+                  <p className="text-xl text-gray-300 mb-8">
+                    {slide.description}
+                  </p>
+                  <button
+                    onClick={scrollToSection}
+                    className="group inline-flex items-center bg-purple-700 text-white px-6 py-3 rounded-full hover:bg-purple-600 transition-colors duration-300"
+                  >
+                    {slide.ctaText}
+                    <i className="fa-solid fa-chevron-right ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </button>
+                </div>
               ))}
             </div>
           </div>
-          {/* Scroll Indicator */}
+        </div>
+      </div>
+    </div>
+  );
+};
 
-          
-          <div className="absolute bottom-8 right-8 z-30">
-            <div className="animate-bounce">
-              <svg
-                className="w-6 h-6 text-white"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-              </svg>
-            </div>
-          </div>
-        </div>   
-          </div>
-        );
-      };
-      Home.propTypes = {
-        innovationSectionRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
-      };
-      
-      export default Home;
+Home.propTypes = {
+  innovationSectionRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+};
+
+export default Home;
