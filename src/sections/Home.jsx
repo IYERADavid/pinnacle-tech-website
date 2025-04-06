@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Monitor, Globe } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Moon, Globe } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { ThemeProvider } from 'next-themes';
-import { ArrowRightIcon } from '@heroicons/react/solid';
-import ai_powered from "../assets/images/ai_powered.jpg";
+import ai_powered from "../assets/images/ai_powered.jpg"
 import 'aos/dist/aos.css';
 import virtual_reality from "../assets/images/virtual_reality.jpg";
 import block_chain from "../assets/images/block_chain.jpg";
@@ -35,11 +33,10 @@ const slides = [
 
 const Home = ({ innovationSectionRef }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [hoveredCategory, setHoveredCategory] = useState(null);
+
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-  const [language, setLanguage] = useState('en'); // Added state for language management
-  const [isLanguageSelectorOpen, setIsLanguageSelectorOpen] = useState(false); // Added state for language selector visibility
+
 
   const scrollToSection = () => {
     if (innovationSectionRef.current) {
@@ -47,9 +44,6 @@ const Home = ({ innovationSectionRef }) => {
     }
   };
 
-  const handleThemeChange = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  };
 
   // state to manage navbar visibility
   const [showNavbar, setShowNavbar] = useState(true);

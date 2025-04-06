@@ -1,11 +1,9 @@
-import React from 'react';
 import education_icon from "../assets/images/education 11.jpg"
 import healthcare_icon from "../assets/images/healthcare 11.jpg"
 import finance_icon from "../assets/images/finance 11.jpg"
 import retail_icon from "../assets/images/retail 11.jpg"
 import manufacturing_icon from "../assets/images/manufacture11.jpg"
 import  energy_icon from "../assets/images/energy 11.jpg"
-import { m } from 'framer-motion';
 import PropTypes from 'prop-types';
 
 const Industries = ({ industrySectionRef }) => {
