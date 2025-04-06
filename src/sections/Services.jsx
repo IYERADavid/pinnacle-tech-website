@@ -1,4 +1,3 @@
-import React from "react";
 import digital_transformation from "../assets/images/digital_transformation.jpg";
 import PropTypes from "prop-types";
 import IT_consulting1 from "../assets/images/IT_consulting1.jpg";
