@@ -35,6 +35,7 @@ const Home = ({ innovationSectionRef }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const [mounted, setMounted] = useState(false);
+  const [isLanguageSelectorOpen, setIsLanguageSelectorOpen] = useState(false);
   const { theme, setTheme } = useTheme();
 
 
@@ -97,11 +98,10 @@ const Home = ({ innovationSectionRef }) => {
               <button
                 key={lang.code}
                 onClick={() => {
-                  setLanguage(lang.code); // update the language state
                   setIsLanguageSelectorOpen(false); // close the selector
                 }}
                 className={`block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 ${
-                  language === lang.code ? 'font-bold' : ''
+                  lang.code ? 'font-bold' : ''
                 }`}
               >
                 {lang.name}
@@ -112,6 +112,10 @@ const Home = ({ innovationSectionRef }) => {
       </div>
     );
   };
+
+  const handleThemeChange = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  }
 
   if (!mounted) return null;
 
