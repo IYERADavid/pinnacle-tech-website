@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "@formspree/react";
 import { ArrowRight } from "lucide-react";
 
-export const Contact = () => {
+export const Contact = ({ aboutSectionRef }) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -52,7 +52,7 @@ export const Contact = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-gray-100 py-16 px-auto px-10">
+    <div id="aboutSectionRef" ref={aboutSectionRef} className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-gray-100 py-16 px-auto px-10">
       <div className="text-center mt-20 my-auto bg-gradient-to-r from-purple-700 to-blue-600 rounded-2xl p-12 shadow-xl">
         <h2 className="text-3xl font-bold text-white mb-6">
           Ready to Lead Your Digital Evolution?

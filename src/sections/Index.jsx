@@ -13,6 +13,8 @@ const Index = () => {
     const industrySectionRef = useRef(null);
     const servicesSectionRef = useRef(null);
     const innovationSectionRef = useRef(null);
+    const aboutSectionRef = useRef(null);
+    const contactSectionRef = useRef(null);
   
     return (
       <>
@@ -21,8 +23,8 @@ const Index = () => {
         <Services servicesSectionRef={servicesSectionRef} />
         <Industries industrySectionRef={industrySectionRef} />
         <Innovation innovationSectionRef={innovationSectionRef} />
-        <About />
-        <Contact />
+        <About contactSectionRef={contactSectionRef} />
+        <Contact aboutSectionRef={aboutSectionRef} />
         <Footer />
       </>
     )
