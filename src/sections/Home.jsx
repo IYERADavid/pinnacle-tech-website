@@ -150,7 +150,7 @@ const Home = ({ innovationSectionRef }) => {
                 Industries
               </a>
               <a
-                href="#innovationSectionRef"
+                href="#contactSectionRef"
                 className="h-16 px-4 flex items-center text-gray-700 dark:text-gray-300 hover:text-purple-800 dark:hover:text-purple-400 transition-colors duration-150"
               >
                 Insights

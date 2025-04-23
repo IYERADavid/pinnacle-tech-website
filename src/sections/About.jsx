@@ -29,7 +29,7 @@ const CardContent = ({ children }) => {
 CardContent.propTypes = {
   children: PropTypes.node.isRequired,
 };
-const AboutSection = () => {
+const AboutSection = ({ contactSectionRef }) => {
   const [ref, inView] = useInView({
    triggerOnce: true,
    threshold: 0.1 
@@ -42,7 +42,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <div id="aboutSectionRef" className="bg-white py-20 lg:py-28">
+    <div id="contactSectionRef" ref={contactSectionRef}  className="bg-white py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Enhanced Mission Statement */}
         <div className="text-center mb-20 space-y-4">
